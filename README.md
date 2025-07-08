@@ -3,13 +3,16 @@ Minimal example for `TLSConfiguration.additionalTrustRoots` issue with [swift-ni
 ## MQTT example
 **NOTE:** This only works with a corresponding MQTT broker (e.g. [mosquitto](https://github.com/eclipse-mosquitto/mosquitto)) that was setup with the certificate and private key in this repo.
 
+If you have `mosquitto` installed locally (`$ brew install mosquitto`), you can use `startMQTTBroker.sh` to start an MQTT broker with a matching configuration'
+
 ### Build
 `$ make mqtt-client`
 
 ### Run
 ``` sh
-$ startMQTTClient.sh --host <hostname>               # Client with certificate in TLSConfiguration.trustRoots
-$ startMQTTClient.sh --host <hostname> --additional  # Client with certificate in TLSConfiguration.additionalTrustRoots
+$ startMQTTBroker.sh &             # Needs mosquitto installed
+$ startMQTTClient.sh               # Client with certificate in TLSConfiguration.trustRoots
+$ startMQTTClient.sh --additional  # Client with certificate in TLSConfiguration.additionalTrustRoots
 $ bin/mqtt-client -h               # For all available options
 ```
 
